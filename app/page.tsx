@@ -2,7 +2,6 @@ import ProductoCard from "@/components/ProductoCard";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
   PaginationNext,

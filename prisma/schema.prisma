@@ -23,6 +23,7 @@ model Producto {
   precio        Float
   imagen        String
   slug          String  @unique
+  inventario    Int     @default(0)
 }
 
 
