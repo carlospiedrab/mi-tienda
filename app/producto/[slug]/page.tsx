@@ -1,4 +1,5 @@
 import { Badge } from "@/components/ui/badge";
+import BreadcrumbsNav from "@/components/ui/BreadcrumbsNav";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Separator } from "@/components/ui/separator";
@@ -19,8 +20,16 @@ export default async function ProductoBySlugPage({params}: Params) {
     const slug = paramValues.slug;
     const producto = await getProductoBySlug(slug);
     if(!producto) return notFound();
+    
+    const breadcrumbs = [
+      {label: "Home", href: "/"},
+      {label: producto.categoria?.nombre, href: `/categoria/${producto.categoria?.slug}`},
+      {label: producto.nombre, href: `/producto/${producto.slug}`}
+    ]
+
   return (
     <main className="container mx-auto p-4">
+      <BreadcrumbsNav items={breadcrumbs} />
       <Card className="max-w-3xl mx-auto">
         <CardContent className="p-6 grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="relative rounded-lg overflow-hidden h-[200px] md:h-[400px]">

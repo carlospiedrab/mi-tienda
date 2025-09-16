@@ -11,4 +11,9 @@ export async function getProductoBySlug(slug: string){
     });
     if(!producto) return null;
     return producto;
+};
+
+export async function getCategorias(){
+    const categorias = await prisma.categoria.findMany({});
+    return categorias;
 }
